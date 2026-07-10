@@ -5695,7 +5695,7 @@ a[href*="promos"]:hover {
 
 }.image-banner .button{
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}/* ADJ Grid – premium mobile grid */
+}/* ADJ Grid – ürün kartı grid'i (temizlenmiş, tekilleştirilmiş) */
 .adj-grid{ padding:18px 0; }
 .adj-grid--tight{ padding:10px 0; }
 .adj-grid--normal{ padding:18px 0; }
@@ -5739,19 +5739,34 @@ a[href*="promos"]:hover {
   grid-template-columns:repeat(var(--adj-cols-desktop), 1fr);
 }
 
-.adj-card{ display:block; text-decoration:none; color:inherit; }
+.adj-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.adj-card:active{
+  transform: scale(0.98);
+}
+@media (hover:hover){
+  .adj-card:hover{
+    transform: translateY(-4px);
+  }
+}
+
 .adj-card__media{
   position:relative;
-  border-radius:14px;
   overflow:hidden;
   background:#f6f6f6;
+  border-radius:4px;
 }
 .adj-card__img{
   display:block;
   width:100%;
   height:auto;
-  aspect-ratio:4/5;
+  aspect-ratio:3/4;
   object-fit:cover;
+  object-position:50% 35%;
 }
 .adj-card__badge{
   position:absolute;
@@ -5765,23 +5780,35 @@ a[href*="promos"]:hover {
   padding:6px 8px;
   border-radius:999px;
 }
-.adj-card__body{ padding:10px 2px 2px; }
+.adj-card__body{ padding:8px 2px 0; }
+
 .adj-card__name{
-  font-size:13px;
-  letter-spacing:.2px;
-  line-height:1.25;
-  margin-bottom:6px;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: .2px;
+  line-height: 1.25;
+  text-transform: none;
+  color: rgba(0,0,0,.86);
+  margin-bottom: 4px;
 }
+
 .adj-card__price{
   display:flex;
   align-items:center;
   gap:8px;
-  font-size:13px;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: rgba(0,0,0,.62);
+}
+.adj-card__price-now{
+  font-weight: 400;
+  font-size: 14px;
 }
 .adj-card__price-was{
   color:rgba(0,0,0,.45);
   text-decoration:line-through;
-  font-size:12px;
+  font-size: 12px;
+  opacity: .45;
 }
 
 .adj-grid__bottom{
@@ -5795,12 +5822,16 @@ a[href*="promos"]:hover {
   justify-content:center;
   padding:12px 16px;
   border-radius:999px;
-  border:1px solid rgba(0,0,0,.14);
-  background:#fff;
-  color:#111;
+  border:0;
+  background:#000;
+  color:#fff;
   text-decoration:none;
   font-size:13px;
+  font-weight:500;
   letter-spacing:.2px;
+}
+.adj-grid__btn:active{
+  transform:scale(0.97);
 }
 
 .adj-grid__empty{
@@ -5818,68 +5849,6 @@ a[href*="promos"]:hover {
     grid-template-columns:repeat(var(--adj-cols-mobile), 1fr);
     gap:10px;
   }
-  .adj-card__media{ border-radius:12px; }
-}.adj-card__name{
-  font-size:14px;
-  font-weight:600;
-  letter-spacing:0.2px;
-}.adj-card__price-now{
-  font-weight:600;
-  font-size:14px;
-}
-.adj-card__price-was{
-  font-size:12px;
-  opacity:0.5;
-}.adj-card{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.adj-card:active{
-  transform: scale(0.98);
-}
-@media (hover:hover){
-  .adj-card:hover{
-    transform: translateY(-4px);
-  }
-}.adj-card__body{
-  padding:8px 2px 0;
-}.adj-grid__btn{
-  background:#000;
-  color:#fff;
-  border:0;
-  font-weight:500;
-}
-.adj-grid__btn:active{
-  transform:scale(0.97);
-}.adj-card__img{
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:cover;
-  object-position:50% 35%;
-}.adj-card__media{
-  border-radius:4px;
-}/* ADJ Grid – premium typography */
-.adj-card__name{
-  font-size: 12.5px;
-  font-weight: 400;
-  letter-spacing: .2px;
-  text-transform: none;       /* İstersen uppercase kaldırır */
-  color: rgba(0,0,0,.86);
-  margin-bottom: 4px;
-}
-
-.adj-card__price{
-  font-size: 12.5px;
-  font-weight: 400;
-  color: rgba(0,0,0,.62);
-}
-
-.adj-card__price-now{
-  font-weight: 400;
-}
-
-.adj-card__price-was{
-  font-size: 12px;
-  opacity: .45;
 }
 /* ADJ MODERN SIZE PICKER — masaüstü (750px ve üzeri) */
 @media screen and (min-width: 750px) {
