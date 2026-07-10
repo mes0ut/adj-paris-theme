@@ -60,7 +60,7 @@
         "menu_size": "small",
         "menu_active_link_icon": "underline",
         "show_line_separator": true,
-        "header_position_type": "sticky",
+        "header_position_type": "fixed",
         "layout_on_desktop": "logo-center-nav-left",
         "enable_search": true,
         "utility_links_type": "icon",
