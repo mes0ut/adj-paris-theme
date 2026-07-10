@@ -17,7 +17,7 @@
         "height_mobile": "custom-mobile",
         "height_mobile_custom": 500,
         "color_scheme": "background-1",
-        "full_width": false,
+        "full_width": true,
         "show_border_bottom": true,
         "border_radius": "image-border-radius--none",
         "image": "shopify://shop_images/Calisma_yuzeyi_4_kopya_7_fad21b4a-9d9b-4339-a05f-ca5b234ef75b.jpg",
