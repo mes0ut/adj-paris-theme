@@ -68,7 +68,7 @@
         "account_label": "Account",
         "cart_label": "Cart",
         "menu_type_desktop": "dropdown",
-        "sub_menu_size": "xl",
+        "sub_menu_size": "medium",
         "sub_menu_style": "uppercase",
         "drawer_menu_title": "",
         "drawer_menu_decorative_icon": false,
