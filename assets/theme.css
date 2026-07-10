@@ -5881,138 +5881,79 @@ a[href*="promos"]:hover {
   font-size: 12px;
   opacity: .45;
 }
-/* MOBILE SIZE BUTTON FIX */
+/* ADJ MODERN SIZE PICKER — mobile (tek, tutarlı blok) */
 @media screen and (max-width: 749px) {
 
-  /* sadece beden kutuları */
-  fieldset.product-form__input.product-form__input--pill label {
-    width: 56px !important;
-    height: 38px !important;
-    min-width: 56px !important;
-    padding: 0 !important;
-    font-size: 13px !important;
-    line-height: 38px !important;
-    text-align: center !important;
-    border-radius: 2px !important;
-    position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  /* seçili beden */
+  /* Beden grid'i: sabit sütun genişliği, düzgün wrap, tüm bedenler aynı hizada */
   fieldset.product-form__input.product-form__input--pill
-  input[type="radio"]:checked + label {
-    background: #111 !important;
-    color: #fff !important;
-    border-color: #111 !important;
-  }
-
-  /* tükenen beden */
-  fieldset.product-form__input.product-form__input--pill
-  label.disabled {
-    opacity: 1 !important;
-    background: #fff !important;
-    color: #111 !important;
-    border-color: #111 !important;
-    overflow: hidden !important;
-  }
-
-  /* çapraz çizgi */
-  fieldset.product-form__input.product-form__input--pill
-  label.disabled::after {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 1px;
-    background: #111;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-38deg);
-    pointer-events: none;
-    z-index: 2;
-  }
-
-}/* ADJ - MOBILE SIZE BUTTONS FINAL */
-
-@media screen and (max-width: 749px) {
-
-  /* Size alanı yatay + wrap düzeni */
-  fieldset.js.product-form__input.product-form__input--pill {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px 8px !important;
-    align-items: center !important;
-  }
-
-  /* Wrapper düzeni */
-  fieldset.js.product-form__input.product-form__input--pill
   .product-form__input-wrapper {
-    display: inline-flex !important;
-    width: auto !important;
-    min-width: auto !important;
-    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 320px !important;
     margin: 0 !important;
-    flex: 0 0 auto !important;
   }
 
-  /* Beden kutuları küçültüldü */
-  fieldset.js.product-form__input.product-form__input--pill
+  /* Beden kutusu — tüm durumlarda (seçili/tükenen/normal) aynı boyut */
+  fieldset.product-form__input.product-form__input--pill
   .product-form__input-wrapper > label {
-    width: 40px !important;
-    min-width: 40px !important;
-    max-width: 40px !important;
-
-    height: 30px !important;
-    min-height: 30px !important;
-    max-height: 30px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
 
     padding: 0 !important;
     margin: 0 !important;
+    box-sizing: border-box !important;
 
-    font-size: 11px !important;
-    line-height: 30px !important;
+    font-size: 12.5px !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    line-height: 1 !important;
 
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
 
-    box-sizing: border-box !important;
-    border-radius: 2px !important;
+    border: 1px solid rgba(17, 17, 17, 0.18) !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    color: #111 !important;
     position: relative !important;
+    overflow: hidden !important;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease !important;
   }
 
-  /* Seçili beden */
-  fieldset.js.product-form__input.product-form__input--pill
+  /* Seçili beden — dolu siyah */
+  fieldset.product-form__input.product-form__input--pill
   input[type="radio"]:checked + label {
     background: #111 !important;
     color: #fff !important;
     border-color: #111 !important;
   }
 
-  /* Tükenen beden */
-  fieldset.js.product-form__input.product-form__input--pill
+  /* Tükenen beden — aynı kutu boyutu, ince gri çapraz çizgi */
+  fieldset.product-form__input.product-form__input--pill
   .product-form__input-wrapper > label.disabled {
-    opacity: 1 !important;
     background: #fff !important;
-    color: #111 !important;
-    border-color: #111 !important;
-    overflow: hidden !important;
+    color: rgba(17, 17, 17, 0.35) !important;
+    border-color: rgba(17, 17, 17, 0.12) !important;
   }
 
-  /* Tükenen beden üzerine çapraz çizgi */
-  fieldset.js.product-form__input.product-form__input--pill
+  fieldset.product-form__input.product-form__input--pill
   .product-form__input-wrapper > label.disabled::after {
     content: "";
     position: absolute;
-    width: 48px !important;
+    width: 140%;
     height: 1px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.3);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-38deg);
+    transform: translate(-50%, -50%) rotate(-24deg);
     pointer-events: none;
-    z-index: 2;
   }
 
 }
