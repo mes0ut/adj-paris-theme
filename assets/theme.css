@@ -1401,6 +1401,13 @@ deferred-media {
 /* ============================================================================
   Button
 ============================================================================== */
+
+/* ADJ — native Apple Pay / Google Pay / Shop Pay butonu, tema buton köşe
+   yuvarlaklığıyla (--button-border-radius) eşleşsin */
+.shopify-payment-button {
+  --shopify-payment-button-border-radius: var(--button-border-radius);
+}
+
 .button,
 .shopify-challenge__button,
 [data-button-type*='button'] button,
