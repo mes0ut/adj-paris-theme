@@ -1403,9 +1403,15 @@ deferred-media {
 ============================================================================== */
 
 /* ADJ — native Apple Pay / Google Pay / Shop Pay butonu, tema buton köşe
-   yuvarlaklığıyla (--button-border-radius) eşleşsin */
-.shopify-payment-button {
+   yuvarlaklığıyla (--button-border-radius) eşleşsin
+   (Eylül 2024 sonrası Shopify bu butonu <shopify-accelerated-checkout>
+   web component'i ile render ediyor, doğru değişken adı da farklı) */
+.shopify-payment-button,
+shopify-accelerated-checkout,
+shopify-accelerated-checkout-cart {
   --shopify-payment-button-border-radius: var(--button-border-radius);
+  --shopify-accelerated-checkout-button-border-radius: var(--button-border-radius);
+  --shopify-accelerated-checkout-button-box-shadow: none;
 }
 
 .button,
