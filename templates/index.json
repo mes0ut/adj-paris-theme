@@ -14,8 +14,8 @@
       "settings": {
         "height": "large",
         "height_custom": 720,
-        "height_mobile": "large-mobile",
-        "height_mobile_custom": 500,
+        "height_mobile": "custom-mobile",
+        "height_mobile_custom": 550,
         "color_scheme": "background-1",
         "full_width": true,
         "show_border_bottom": true,
