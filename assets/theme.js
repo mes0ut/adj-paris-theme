@@ -2770,14 +2770,20 @@ class StickyCart extends HTMLElement {
   }
 
   initObserver() {
-    window.addEventListener('scroll', this.handleStickyCart.bind(this), { passive: true });
-    this.handleStickyCart();
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0
+    }
+
+    const observer = new IntersectionObserver(this.handleStickyCart.bind(this), options)
+    observer.observe(this.stickyCartTrigger)
   }
 
   handleStickyCart() {
     const triggerCoordsY = this.stickyCartTrigger.getBoundingClientRect().top
 
-    if(triggerCoordsY < window.innerHeight * 0.8) {
+    if(triggerCoordsY < 0) {
       this.classList.add('is-sticky')
       this.classList.add('is-visible')
       this.body.style.paddingBottom = this.getBoundingClientRect().height + 'px';

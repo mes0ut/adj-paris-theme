@@ -5881,6 +5881,68 @@ a[href*="promos"]:hover {
   font-size: 12px;
   opacity: .45;
 }
+/* ADJ MODERN SIZE PICKER — masaüstü (750px ve üzeri) */
+@media screen and (min-width: 750px) {
+
+  fieldset.product-form__input.product-form__input--pill
+  .product-form__input-wrapper {
+    gap: 8px !important;
+  }
+
+  fieldset.product-form__input.product-form__input--pill
+  .product-form__input-wrapper > label {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 1.8rem !important;
+
+    font-size: 13px !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+
+    border: 1px solid rgba(17, 17, 17, 0.18) !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    color: #111 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  fieldset.product-form__input.product-form__input--pill
+  input[type="radio"]:checked + label {
+    background: #111 !important;
+    color: #fff !important;
+    border-color: #111 !important;
+  }
+
+  fieldset.product-form__input.product-form__input--pill
+  input[type="radio"]:not(:checked) + label:hover {
+    border-color: rgba(17, 17, 17, 0.4) !important;
+  }
+
+  fieldset.product-form__input.product-form__input--pill
+  .product-form__input-wrapper > label.disabled {
+    background: #fff !important;
+    color: rgba(17, 17, 17, 0.35) !important;
+    border-color: rgba(17, 17, 17, 0.12) !important;
+    text-decoration: none !important;
+  }
+
+  fieldset.product-form__input.product-form__input--pill
+  .product-form__input-wrapper > label.disabled::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 1px;
+    background: rgba(17, 17, 17, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-24deg);
+    pointer-events: none;
+  }
+
+}
+
 /* ADJ MODERN SIZE PICKER — mobile (tek, tutarlı blok) */
 @media screen and (max-width: 749px) {
 
@@ -6012,22 +6074,18 @@ a[href*="promos"]:hover {
 .menu-drawer__menu > li:first-child .menu-drawer__menu-item:hover {
   color: #C13539 !important;
   opacity: .8;
-}.price-item.price-item--sale {
-    font-size: 22px !important;
-    font-weight: 700 !important;
-    color: #C13539 !important;
-}
-
-.price-item.price-item--regular {
-    font-size: 16px !important;
-    opacity: 0.7;
-}.price-item--sale {
-    font-size: 26px !important;
-    font-weight: 800 !important;
-    color: #C13539 !important;
-}
-
+}/* ADJ ÜRÜN KARTI FİYAT — normal fiyat siyah üstü çizili, indirim fiyatı dengeli kırmızı */
+.price-item.price-item--regular,
 .price-item--regular {
-    font-size: 16px !important;
-    color: #888 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #111 !important;
+  opacity: 1 !important;
+}
+
+.price-item.price-item--sale,
+.price-item--sale {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #C13539 !important;
 }
