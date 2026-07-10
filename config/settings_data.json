@@ -12,11 +12,11 @@
     "logo": "shopify://shop_images/adjparis-logo.png",
     "logo_width": 70,
     "favicon": "shopify://shop_images/ChatGPT_Image_22_Ara_2025_18_55_35.png",
-    "type_header_font": "arial_n4",
+    "type_header_font": "space_grotesk_n6",
     "heading_scale": 70,
-    "type_subheader_font": "arial_n4",
+    "type_subheader_font": "space_grotesk_n6",
     "subheading_scale": 70,
-    "type_body_font": "arial_n4",
+    "type_body_font": "space_grotesk_n5",
     "body_scale": 80,
     "page_width": 1760,
     "buttons_border_thickness": 0,
@@ -151,33 +151,18 @@
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": true,
         "settings": {
+          "greeting_message": "Bonjour, vous pouvez nous envoyer un message pour toutes vos questions. Nous serons ravis de vous aider !",
           "button_color": "#000000",
           "secondary_color": "#ffffff",
           "ternary_color": "#6a6a6a",
           "button_icon": "chat_bubble",
           "button_text": "assistance",
           "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "Bonjour, vous pouvez nous envoyer un message pour toutes vos questions. Nous serons ravis de vous aider !"
+          "button_vertical_position": "lowest"
         }
-      },
-      "13615385223509461694": {
-        "type": "shopify://apps/magic-zoom-plus/blocks/magiczoomplus/893db416-6d9e-4ad6-b769-71d9cdd734fe",
-        "disabled": true,
-        "settings": {}
-      },
-      "239497251091147081": {
-        "type": "shopify://apps/size-charts-jotly/blocks/embed/97eaca86-aad8-492c-9d4d-0dfdc4899889",
-        "disabled": false,
-        "settings": {}
       },
       "18208458784099693593": {
         "type": "shopify://apps/curately/blocks/whatsapp-chat/019997e7-bd5e-7820-808e-d042c9f792b2",
-        "disabled": false,
-        "settings": {}
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
       }
