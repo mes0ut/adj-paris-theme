@@ -112,24 +112,8 @@
     color-{{ section.settings.color_scheme }}
     header-{{ header_type }}
     {% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}
-    {% if template.name == 'index' %} header-wrapper--transparent-index{% endif %}
   "
 >
-  {%- if template.name == 'index' -%}
-    <script>
-      (function () {
-        var headerWrapper = document.currentScript.closest('.header-wrapper');
-        if (!headerWrapper) return;
-        var threshold = 40;
-        function onScroll() {
-          var scrolled = (window.pageYOffset || document.documentElement.scrollTop) > threshold;
-          headerWrapper.classList.toggle('is-scrolled', scrolled);
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      })();
-    </script>
-  {%- endif -%}
   <header
     class="header page-width
       header--{{ section.settings.layout_on_desktop }}
