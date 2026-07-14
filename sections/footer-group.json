@@ -31,7 +31,7 @@
         "form": {
           "type": "email_form",
           "settings": {
-            "form_style": "wrapped"
+            "form_style": "stacked"
           }
         }
       },

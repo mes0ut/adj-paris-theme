@@ -53,7 +53,7 @@
             </div>
           {%- when 'email_form' -%}
             <div {{ block.shopify_attributes }}>
-              {% form 'customer', class: 'newsletter-form' %}
+              {% form 'customer', id: 'NewsletterForm-' | append: section.id, class: 'newsletter-form' %}
                 {%- if form.posted_successfully? -%}
                   <div class="newsletter-form__success" tabindex="-1" autofocus>
                     <h3>
@@ -108,6 +108,42 @@
                         </label>
                       </div>
                     </div>
+                    <div class="newsletter-form__field-wrapper">
+                      <div class="field field--phone">
+                        <select
+                          id="NewsletterPhoneCountry--{{ section.id }}"
+                          class="newsletter-form__phone-code"
+                          aria-label="{{ 'newsletter.phone_country' | t }}"
+                        >
+                          <option value="+33" selected>FR +33</option>
+                          <option value="+90">TR +90</option>
+                          <option value="+32">BE +32</option>
+                          <option value="+41">CH +41</option>
+                          <option value="+352">LU +352</option>
+                          <option value="+1">US +1</option>
+                          <option value="+44">UK +44</option>
+                        </select>
+                        <input
+                          id="NewsletterPhoneNumber--{{ section.id }}"
+                          type="tel"
+                          class="field__input newsletter-form__phone-input"
+                          placeholder="{{ 'newsletter.phone_label' | t }}"
+                          autocomplete="tel-national"
+                          inputmode="tel"
+                        >
+                        <input
+                          type="hidden"
+                          name="customer[phone]"
+                          id="NewsletterPhoneHidden--{{ section.id }}"
+                        >
+                        <label
+                          class="field__label visually-hidden"
+                          for="NewsletterPhoneNumber--{{ section.id }}"
+                        >
+                          {{ 'newsletter.phone_label' | t }}
+                        </label>
+                      </div>
+                    </div>
                     <button
                       type="submit"
                       name="commit"
@@ -136,6 +172,20 @@
                   {%- endif -%}
                 {%- endif -%}
               {% endform %}
+              <script>
+                (function () {
+                  var form = document.getElementById('NewsletterForm-{{ section.id }}');
+                  if (!form) return;
+                  form.addEventListener('submit', function () {
+                    var code = document.getElementById('NewsletterPhoneCountry--{{ section.id }}');
+                    var num = document.getElementById('NewsletterPhoneNumber--{{ section.id }}');
+                    var hidden = document.getElementById('NewsletterPhoneHidden--{{ section.id }}');
+                    if (code && num && hidden && num.value.trim() !== '') {
+                      hidden.value = code.value + num.value.trim().replace(/^0+/, '');
+                    }
+                  });
+                })();
+              </script>
             </div>
         {%- endcase -%}
       {%- endfor -%}
