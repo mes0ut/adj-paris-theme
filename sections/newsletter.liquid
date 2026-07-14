@@ -52,8 +52,9 @@
               {{ block.settings.paragraph }}
             </div>
           {%- when 'email_form' -%}
+            {% assign newsletter_form_id = 'NewsletterForm-' | append: section.id %}
             <div {{ block.shopify_attributes }}>
-              {% form 'customer', id: 'NewsletterForm-' | append: section.id, class: 'newsletter-form' %}
+              {% form 'customer', id: newsletter_form_id, class: 'newsletter-form' %}
                 {%- if form.posted_successfully? -%}
                   <div class="newsletter-form__success" tabindex="-1" autofocus>
                     <h3>
