@@ -6107,7 +6107,7 @@ a[href*="promos"]:hover {
 @media screen and (max-width: 749px) {
 
   .header-wrapper--transparent-product {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
     right: 0;
@@ -6116,6 +6116,10 @@ a[href*="promos"]:hover {
     border-bottom: none !important;
     box-shadow: none !important;
     transition: background-color .25s ease;
+  }
+
+  .header-wrapper--transparent-product .header {
+    background-color: transparent !important;
   }
 
   .header-wrapper--transparent-product .header,
@@ -6132,9 +6136,13 @@ a[href*="promos"]:hover {
   }
 
   .header-wrapper--transparent-product.is-scrolled {
-    position: fixed;
+    position: fixed !important;
     background: rgb(var(--color-background)) !important;
     box-shadow: 0 1px 0 rgba(0,0,0,.06) !important;
+  }
+
+  .header-wrapper--transparent-product.is-scrolled .header {
+    background-color: rgb(var(--color-background)) !important;
   }
 
   .header-wrapper--transparent-product.is-scrolled .header,
