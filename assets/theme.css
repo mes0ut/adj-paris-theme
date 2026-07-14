@@ -6110,3 +6110,57 @@ a[href*="promos"]:hover {
   background-color: rgb(var(--color-background)) !important;
   border: none !important;
 }
+
+/* ADJ — anasayfada header, hero slider üzerine şeffaf biner; scroll'da beyaza döner
+   (header normal akışta kalır — duyuru çubuğuyla çakışma yaşanmasın diye position değiştirilmez,
+   sadece ilk section header'ın altına, header yüksekliği kadar yukarı çekilir) */
+
+.template-index main#MainContent > .shopify-section:first-child {
+  margin-top: calc(-1 * var(--header-height, 0px));
+}
+
+.header-wrapper--transparent-index {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  transition: background-color .25s ease;
+}
+
+.header-wrapper--transparent-index .header {
+  background-color: transparent !important;
+}
+
+.header-wrapper--transparent-index .header,
+.header-wrapper--transparent-index .header__icon,
+.header-wrapper--transparent-index .header__heading-link,
+.header-wrapper--transparent-index .header__menu-item,
+.header-wrapper--transparent-index .header__submenu-parent-icon,
+.header-wrapper--transparent-index summary {
+  color: #fff;
+}
+
+.header-wrapper--transparent-index .header__heading-link img {
+  filter: brightness(0) invert(1);
+}
+
+.header-wrapper--transparent-index.is-scrolled {
+  background: rgb(var(--color-background)) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06) !important;
+}
+
+.header-wrapper--transparent-index.is-scrolled .header {
+  background-color: rgb(var(--color-background)) !important;
+}
+
+.header-wrapper--transparent-index.is-scrolled .header,
+.header-wrapper--transparent-index.is-scrolled .header__icon,
+.header-wrapper--transparent-index.is-scrolled .header__heading-link,
+.header-wrapper--transparent-index.is-scrolled .header__menu-item,
+.header-wrapper--transparent-index.is-scrolled .header__submenu-parent-icon,
+.header-wrapper--transparent-index.is-scrolled summary {
+  color: rgb(var(--color-foreground));
+}
+
+.header-wrapper--transparent-index.is-scrolled .header__heading-link img {
+  filter: none;
+}
