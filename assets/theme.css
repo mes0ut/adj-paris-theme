@@ -6102,3 +6102,52 @@ a[href*="promos"]:hover {
     width: 100%;
   }
 }
+
+/* ADJ — ürün sayfasında header, galeri üzerine şeffaf biner (SADECE MOBİL); scroll'da beyaza döner */
+@media screen and (max-width: 749px) {
+
+  .header-wrapper--transparent-product {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    transition: background-color .25s ease;
+  }
+
+  .header-wrapper--transparent-product .header,
+  .header-wrapper--transparent-product .header__icon,
+  .header-wrapper--transparent-product .header__heading-link,
+  .header-wrapper--transparent-product .header__menu-item,
+  .header-wrapper--transparent-product .header__submenu-parent-icon,
+  .header-wrapper--transparent-product summary {
+    color: #fff;
+  }
+
+  .header-wrapper--transparent-product .header__heading-link img {
+    filter: brightness(0) invert(1);
+  }
+
+  .header-wrapper--transparent-product.is-scrolled {
+    position: fixed;
+    background: rgb(var(--color-background)) !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,.06) !important;
+  }
+
+  .header-wrapper--transparent-product.is-scrolled .header,
+  .header-wrapper--transparent-product.is-scrolled .header__icon,
+  .header-wrapper--transparent-product.is-scrolled .header__heading-link,
+  .header-wrapper--transparent-product.is-scrolled .header__menu-item,
+  .header-wrapper--transparent-product.is-scrolled .header__submenu-parent-icon,
+  .header-wrapper--transparent-product.is-scrolled summary {
+    color: rgb(var(--color-foreground));
+  }
+
+  .header-wrapper--transparent-product.is-scrolled .header__heading-link img {
+    filter: none;
+  }
+
+}
