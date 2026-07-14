@@ -6102,3 +6102,10 @@ a[href*="promos"]:hover {
     width: 100%;
   }
 }
+
+/* ADJ — koleksiyon sayfasında FILTRER butonu ve sıralama dropdown'u,
+   global input rengi yerine section'ın kendi renk şemasına (arka plana) uysun */
+.facets-wrapper .mobile-facets__open,
+.facets-wrapper .facet-filters__sort.select__select {
+  background-color: rgb(var(--color-background)) !important;
+}
