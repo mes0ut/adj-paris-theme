@@ -315,9 +315,6 @@
               >&copy; {{ 'now' | date: '%Y' }},
               {{ shop.name | link_to: routes.root_url -}}
             </small>
-            <small class="copyright__content p-label">
-              {{- powered_by_link -}}
-            </small>
           </div>
         </div>
 
@@ -326,9 +323,6 @@
           <small class="copyright__content p-label"
             >&copy; {{ 'now' | date: '%Y' }},
             {{ shop.name | link_to: routes.root_url -}}
-          </small>
-          <small class="copyright__content p-label">
-            {{- powered_by_link -}}
           </small>
         </div>
       {% endif %}
