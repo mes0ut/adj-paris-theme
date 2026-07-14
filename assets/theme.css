@@ -6071,3 +6071,34 @@ a[href*="promos"]:hover {
   font-weight: 600 !important;
   color: #C13539 !important;
 }
+/* ADJ — bülten formu telefon alanı (ülke kodu + numara yan yana) */
+.field--phone {
+  align-items: stretch;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.newsletter-form__phone-code {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: rgb(var(--input-background-color));
+  border: var(--inputs-border-thickness) solid rgba(var(--color-border-1), var(--inputs-border-opacity));
+  border-radius: var(--inputs-radius);
+  color: rgb(var(--input-text-color));
+  flex: 0 0 auto;
+  font-family: inherit;
+  font-size: 1.3rem;
+  padding: 0 1rem;
+  width: 8.4rem;
+}
+
+.newsletter-form__phone-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .field--phone {
+    width: 100%;
+  }
+}

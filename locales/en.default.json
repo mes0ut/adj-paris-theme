@@ -76,6 +76,8 @@
   },
   "newsletter": {
     "label": "Your email",
+    "phone_label": "Phone number",
+    "phone_country": "Country code",
     "success": "Thanks for subscribing",
     "success_message": "We'll keep you posted on the latest news and offers.",
     "button_label": "Subscribe"

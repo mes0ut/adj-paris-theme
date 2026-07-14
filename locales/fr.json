@@ -76,6 +76,8 @@
   },
   "newsletter": {
     "label": "Votre e-mail",
+    "phone_label": "Numéro de téléphone",
+    "phone_country": "Indicatif pays",
     "success": "Merci pour votre inscription",
     "success_message": "Nous vous tiendrons informé des dernières nouveautés et offres.",
     "button_label": "S'abonner"
