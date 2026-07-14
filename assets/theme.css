@@ -6108,4 +6108,5 @@ a[href*="promos"]:hover {
 .facets-wrapper .mobile-facets__open,
 .facets-wrapper .facet-filters__sort.select__select {
   background-color: rgb(var(--color-background)) !important;
+  border: none !important;
 }
