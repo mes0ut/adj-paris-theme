@@ -161,7 +161,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
-        "show_border_bottom": false,
+        "show_border_bottom": true,
         "heading": "",
         "heading_size": "h2",
         "title_style": "uppercase",
