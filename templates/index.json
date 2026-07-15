@@ -22,7 +22,7 @@
         "border_radius": "image-border-radius--none",
         "image": "shopify://shop_images/2.jpg",
         "delay_loader": true,
-        "image_mobile": "shopify://shop_images/C-alisma_yuzeyi_6.jpg",
+        "image_mobile": "shopify://shop_images/Calisma_yuzeyi_4_dc384007-9ba5-4934-8c70-b92cbf8e5221.jpg",
         "heading": "",
         "title_style": "uppercase",
         "header_size": "h1",
@@ -48,7 +48,7 @@
         "image_jxjjxE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Calisma_yuzeyi_4_kopya_5.jpg",
+            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_5.jpg",
             "image_style": "image-border-radius--none",
             "title": "",
             "text": "",
@@ -60,7 +60,7 @@
         "image_qcYj8j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Calisma_yuzeyi_4_kopya_11.jpg",
+            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_11.jpg",
             "image_style": "image-border-radius--none",
             "title": "",
             "text": "",
@@ -72,7 +72,7 @@
         "image_9C6ifC": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Calisma_yuzeyi_4_kopya_14.jpg",
+            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_14.jpg",
             "image_style": "image-border-radius--none",
             "title": "",
             "text": "",
@@ -84,7 +84,7 @@
         "image_p6gCMH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Calisma_yuzeyi_4_kopya_13.jpg",
+            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_13.jpg",
             "image_style": "image-border-radius--none",
             "title": "",
             "text": "",
