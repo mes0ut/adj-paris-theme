@@ -90,14 +90,20 @@
   .app-download-banner__stores {
     display: flex;
     gap: 10px;
+    align-items: center;
     flex-wrap: wrap;
   }
-  .app-download-banner__stores img {
-    height: 40px;
-    width: 135px;
-    object-fit: contain;
-    object-position: left center;
+  .app-download-banner__badge-img {
     display: block;
+  }
+  .app-download-banner__badge-img--apple {
+    height: 40px;
+    width: auto;
+  }
+  .app-download-banner__badge-img--google {
+    height: 58px;
+    width: auto;
+    margin: -9px 0;
   }
   @media (max-width: 749px) {
     .app-download-banner__inner {
@@ -143,12 +149,12 @@
       <div class="app-download-banner__stores">
         {% if section.settings.app_store_link != blank %}
           <a href="{{ section.settings.app_store_link }}" target="_blank" rel="noopener">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger dans l'App Store">
+            <img class="app-download-banner__badge-img app-download-banner__badge-img--apple" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger dans l'App Store">
           </a>
         {% endif %}
         {% if section.settings.google_play_link != blank %}
           <a href="{{ section.settings.google_play_link }}" target="_blank" rel="noopener">
-            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
+            <img class="app-download-banner__badge-img app-download-banner__badge-img--google" src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
           </a>
         {% endif %}
       </div>
