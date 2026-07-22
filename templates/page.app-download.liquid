@@ -1,0 +1,70 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADJ PARIS — L'application</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .card { max-width: 380px; }
+  .logo { width: 80px; margin-bottom: 24px; }
+  h1 { font-size: 22px; margin: 0 0 12px 0; }
+  p { font-size: 14px; color: #cccccc; line-height: 1.6; margin: 0 0 28px 0; }
+  .badges img { height: 50px; margin: 0 6px 10px 6px; }
+  .badges a { display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img class="logo" src="https://cdn.shopify.com/s/files/1/0729/2577/4164/files/adjparis-logo.png?v=1701347371" alt="ADJ PARIS">
+  <h1>L'application ADJ Paris</h1>
+  <p id="msg">Redirection en cours…</p>
+
+  <div class="badges" id="badges" style="display:none;">
+    <a href="https://apps.apple.com/dk/app/adj-paris/id6776702478" target="_blank" rel="noopener">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger dans l'App Store">
+    </a>
+    <br>
+    <a href="https://play.google.com/store/apps/details?id=com.adjparis.mobile" target="_blank" rel="noopener">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
+    </a>
+  </div>
+</div>
+
+<script>
+  var IOS_URL = "https://apps.apple.com/dk/app/adj-paris/id6776702478";
+  var ANDROID_URL = "https://play.google.com/store/apps/details?id=com.adjparis.mobile";
+
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var isAndroid = /android/i.test(ua);
+
+  if (isIOS) {
+    document.getElementById("msg").textContent = "Redirection vers l'App Store…";
+    window.location.replace(IOS_URL);
+  } else if (isAndroid) {
+    document.getElementById("msg").textContent = "Redirection vers Google Play…";
+    window.location.replace(ANDROID_URL);
+  } else {
+    // Ordinateur ou appareil non reconnu : on affiche les deux options
+    document.getElementById("msg").textContent = "Choisissez votre plateforme pour télécharger l'application :";
+    document.getElementById("badges").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
