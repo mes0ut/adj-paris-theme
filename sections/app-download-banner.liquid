@@ -1,0 +1,190 @@
+{% comment %}
+  Section: Uygulama İndirme Banner'ı
+  Kullanım: Online Store > Themes > Edit code > Sections klasörüne
+  "app-download-banner.liquid" adıyla ekleyin. Ardından Tema Düzenleyici'de
+  ana sayfada istediğiniz iki bölümün arasına "Add section" ile ekleyebilirsiniz.
+{% endcomment %}
+
+<style>
+  .app-download-banner {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 56px 24px;
+  }
+  .app-download-banner__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .app-download-banner__text {
+    flex: 1 1 380px;
+    min-width: 280px;
+  }
+  .app-download-banner__image {
+    flex: 1 1 320px;
+    min-width: 240px;
+    text-align: center;
+  }
+  .app-download-banner__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  .app-download-banner__eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    font-weight: 700;
+    margin: 0 0 12px 0;
+  }
+  .app-download-banner__heading {
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+  }
+  .app-download-banner__subtext {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin: 0 0 28px 0;
+    max-width: 440px;
+  }
+  .app-download-banner__badge {
+    display: inline-block;
+    border: 1.5px dashed {{ section.settings.accent_color }};
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin-bottom: 26px;
+  }
+  .app-download-banner__badge-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: {{ section.settings.accent_color }};
+    margin: 0 0 2px 0;
+  }
+  .app-download-banner__badge-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .app-download-banner__cta {
+    display: inline-block;
+    background-color: {{ section.settings.button_bg }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 16px 38px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .app-download-banner__stores {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .app-download-banner__stores img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 749px) {
+    .app-download-banner__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .app-download-banner__stores {
+      justify-content: center;
+    }
+    .app-download-banner__badge {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+
+<div class="app-download-banner">
+  <div class="app-download-banner__inner">
+    <div class="app-download-banner__text">
+      {% if section.settings.eyebrow != blank %}
+        <p class="app-download-banner__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+
+      <h2 class="app-download-banner__heading">{{ section.settings.heading }}</h2>
+
+      {% if section.settings.subtext != blank %}
+        <p class="app-download-banner__subtext">{{ section.settings.subtext }}</p>
+      {% endif %}
+
+      {% if section.settings.show_badge %}
+        <div class="app-download-banner__badge">
+          <p class="app-download-banner__badge-value">{{ section.settings.badge_value }}</p>
+          <p class="app-download-banner__badge-label">{{ section.settings.badge_label }}</p>
+        </div>
+      {% endif %}
+
+      <div>
+        <a href="{{ section.settings.cta_link | default: '/pages/application' }}" class="app-download-banner__cta">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+
+      <div class="app-download-banner__stores">
+        {% if section.settings.app_store_link != blank %}
+          <a href="{{ section.settings.app_store_link }}" target="_blank" rel="noopener">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger dans l'App Store">
+          </a>
+        {% endif %}
+        {% if section.settings.google_play_link != blank %}
+          <a href="{{ section.settings.google_play_link }}" target="_blank" rel="noopener">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="app-download-banner__image">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 700 }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Uygulama İndirme Banner'ı",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Görsel" },
+    { "type": "text", "id": "eyebrow", "label": "Üst etiket", "default": "NOUVEAU" },
+    { "type": "text", "id": "heading", "label": "Başlık", "default": "Téléchargez l'application ADJ Paris" },
+    { "type": "textarea", "id": "subtext", "label": "Alt metin", "default": "Toute la collection, vos commandes et des offres exclusives, désormais dans votre poche." },
+    { "type": "checkbox", "id": "show_badge", "label": "Rozet göster (ör. -10%)", "default": true },
+    { "type": "text", "id": "badge_value", "label": "Rozet değeri", "default": "-10%" },
+    { "type": "text", "id": "badge_label", "label": "Rozet açıklaması", "default": "Réservé à l'application" },
+    { "type": "text", "id": "cta_text", "label": "Buton metni", "default": "Télécharger l'application" },
+    { "type": "url", "id": "cta_link", "label": "Buton linki (smart link sayfanız — örn. /pages/application)" },
+    { "type": "url", "id": "app_store_link", "label": "App Store linki" },
+    { "type": "url", "id": "google_play_link", "label": "Google Play linki" },
+    { "type": "color", "id": "bg_color", "label": "Arka plan rengi", "default": "#0a0a0a" },
+    { "type": "color", "id": "text_color", "label": "Metin rengi", "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Vurgu rengi (rozet, üst etiket)", "default": "#c9302c" },
+    { "type": "color", "id": "button_bg", "label": "Buton arka plan rengi", "default": "#c9302c" },
+    { "type": "color", "id": "button_text_color", "label": "Buton metin rengi", "default": "#ffffff" }
+  ],
+  "presets": [
+    {
+      "name": "Uygulama İndirme Banner'ı"
+    }
+  ]
+}
+{% endschema %}
