@@ -47,7 +47,7 @@
     "product_card_show_swatches": true,
     "product_card_swatch_size": 19,
     "product_card_swatch_border_radius": 40,
-    "enable_quick_view": false,
+    "enable_quick_view": true,
     "quick_view_type": "icon",
     "quick_view_trigger_color_scheme": "background-4",
     "quick_view_trigger_border_radius": 40,

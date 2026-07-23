@@ -27,7 +27,7 @@
       "settings": {
         "color_scheme": "background-3",
         "show_border_bottom": true,
-        "products_per_page": 48,
+        "products_per_page": 40,
         "desktop_columns": 5,
         "desktop_columns_gap": 36,
         "desktop_rows_gap": 36,
