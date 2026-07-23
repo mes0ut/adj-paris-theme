@@ -141,7 +141,7 @@
         "cta_link": "shopify://pages/application",
         "app_store_link": "https://apps.apple.com/fr/app/adj-paris/id6776702478",
         "google_play_link": "https://play.google.com/store/apps/details?id=com.adjparis.mobile",
-        "bg_color": "#FFFFFF",
+        "bg_color": "#ffffff",
         "text_color": "#000000",
         "accent_color": "#c9302c",
         "button_bg": "#c9302c",
@@ -182,8 +182,8 @@
         "column_three"
       ],
       "settings": {
-        "color_scheme": "background-4",
-        "show_border_bottom": false,
+        "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
+        "show_border_bottom": true,
         "heading": "",
         "heading_size": "h2",
         "title_style": "uppercase",
