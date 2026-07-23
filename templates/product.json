@@ -63,12 +63,8 @@
             "faq_open": false,
             "faqs_question": "livraison & retours",
             "title_style": "uppercase",
-            "faqs_answer": "<p><strong>LIVRAISON</strong></p><p>Les commandes passées du lundi au vendredi avant 13h00 sont expédiées le jour même et livrées le lendemain.</p><p>La livraison est offerte dès 70€ d'achat. Un e-mail de suivi vous est automatiquement envoyé dès l'expédition de votre commande. Un code de livraison vous sera envoyé par SMS afin de valider la réception de votre colis.</p><p><strong>RETOURS</strong></p><p>Vous disposez de 14 jours à compter de la réception de votre commande pour effectuer un retour. Les articles doivent être retournés non portés, avec leurs étiquettes d'origine. Les frais de retour sont à la charge du client.</p>"
+            "faqs_answer": "<p>LIVRAISON</p><p>Les commandes passées du lundi au vendredi avant 13h00 sont expédiées le jour même et livrées le lendemain.</p><p>Deux options de livraison sont disponibles : livraison express à domicile avant 13h (7,99€) ou livraison en point relais (3,99€), toutes deux sous 1 à 2 jours ouvrés. La livraison est offerte dès 70€ d'achat. Un e-mail de suivi vous est automatiquement envoyé dès l'expédition de votre commande. Un code de livraison vous sera envoyé par SMS afin de valider la réception de votre colis.</p><p>Nous livrons également dans toute l'Europe via Chronopost, pour les commandes jusqu'à 5 kg :</p><ul><li>Allemagne, Belgique, Luxembourg, Pays-Bas, Liechtenstein, Norvège, Suisse : 14,90€ (2 à 5 jours ouvrés)</li><li>Autriche, Danemark, Espagne, Finlande, Grèce, Irlande, Italie, Portugal, Royaume-Uni, Suède : 15,90€ (2 à 6 jours ouvrés)</li><li>Bulgarie, Croatie, Estonie, Hongrie, Lettonie, Lituanie, Pologne, République Tchèque, Roumanie, Slovaquie, Slovénie : 19,90€ (3 à 4 jours ouvrés)</li></ul><p>La livraison est offerte dès 250€ d'achat pour l'ensemble de ces destinations.</p><p>RETOURS</p><p>Vous disposez de 14 jours à compter de la réception de votre commande pour effectuer un retour. Les articles doivent être retournés non portés, avec leurs étiquettes d'origine. Les frais de retour sont à la charge du client.</p>"
           }
-        },
-        "size_charts_jotly_jotly_size_chart_block_gd3nqY": {
-          "type": "shopify://apps/size-charts-jotly/blocks/jotly-size-chart-block/97eaca86-aad8-492c-9d4d-0dfdc4899889",
-          "settings": {}
         },
         "size_chart_fPgBE3": {
           "type": "size_chart",
@@ -136,7 +132,6 @@
         "main_accords_bqYc4p",
         "collapsible_content_YhmbQH",
         "collapsible_content_NYLM4L",
-        "size_charts_jotly_jotly_size_chart_block_gd3nqY",
         "size_chart_fPgBE3",
         "variant_picker",
         "custom_liquid_f4cdtw",
