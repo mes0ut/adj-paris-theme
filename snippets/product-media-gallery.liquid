@@ -51,7 +51,8 @@
   if enable_media_grouping
     assign selected_variant = product.selected_or_first_available_variant
     assign product_media_group_include = ''
-    assign media_group_option_names = 'color'
+    # Bilinen "renk" çevirileri — mağaza hangi dilde olursa olsun (Couleur, Color, Colour, Colore, Farbe, Kleur, Cor...) seçenek adı eşleşsin diye her zaman kontrol edilir. Ayar (media_group_name) ekstra bir dil eklemek için kullanılabilir, ama bu listenin yerini almaz.
+    assign media_group_option_names = 'color,colour,couleur,colore,farbe,kleur,cor,kolor,färg,farge,väri,culoare,szín,barva,kolorystyka'
 
     if media_grouping_name != blank
       capture clean_media_groups
@@ -64,8 +65,11 @@
         endfor
       endcapture
 
-      assign media_group_option_names = clean_media_groups | downcase | split: ','
+      assign custom_media_groups = clean_media_groups | downcase
+      assign media_group_option_names = media_group_option_names | append: ',' | append: custom_media_groups
     endif
+
+    assign media_group_option_names = media_group_option_names | split: ','
 
     assign active_filter_value = ''
 
