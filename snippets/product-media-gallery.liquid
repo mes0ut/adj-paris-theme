@@ -89,6 +89,73 @@
       endif
     endfor
 
+    # Görsel alt metinleri her zaman Fransızca renk adıyla girildiği için,
+    # aktif dil İngilizce (ya da başka biri) olduğunda seçili varyantın rengini
+    # burada Fransızca karşılığına çeviriyoruz — böylece eşleşme dilden bağımsız çalışır.
+    # Yeni bir renk eklenince buraya da (İngilizce: Fransızca) satırı eklenmesi yeterli.
+    case active_filter_value
+      when 'black'
+        assign active_filter_value = 'noir'
+      when 'white'
+        assign active_filter_value = 'blanc'
+      when 'blue'
+        assign active_filter_value = 'bleu'
+      when 'green'
+        assign active_filter_value = 'vert'
+      when 'baby blue'
+        assign active_filter_value = 'baby bleu'
+      when 'salmon pink'
+        assign active_filter_value = 'saumon'
+      when 'pink'
+        assign active_filter_value = 'rose'
+      when 'saxe blue'
+        assign active_filter_value = 'bleu sax'
+      when 'lilac'
+        assign active_filter_value = 'lila'
+      when 'grey'
+        assign active_filter_value = 'gris'
+      when 'purple'
+        assign active_filter_value = 'violet'
+      when 'khaki'
+        assign active_filter_value = 'kaki'
+      when 'light grey'
+        assign active_filter_value = 'gris clair'
+      when 'stone'
+        assign active_filter_value = 'pierre'
+      when 'dark blue'
+        assign active_filter_value = 'bleu marine'
+      when 'dark grey'
+        assign active_filter_value = 'gris foncé'
+      when 'brown'
+        assign active_filter_value = 'marron'
+      when 'cinnamon'
+        assign active_filter_value = 'cannelle'
+      when 'red'
+        assign active_filter_value = 'rouge'
+      when 'zen blue'
+        assign active_filter_value = 'bleu zen'
+      when 'greymelange'
+        assign active_filter_value = 'gris chiné'
+      when 'stayblack'
+        assign active_filter_value = 'noir intense'
+      when 'washed blue'
+        assign active_filter_value = 'bleu délavé'
+      when 'grencastblue'
+        assign active_filter_value = 'bleu ciment'
+      when 'yellow'
+        assign active_filter_value = 'jaune'
+      when 'ice blue'
+        assign active_filter_value = 'bleu glace'
+      when 'washed black'
+        assign active_filter_value = 'noir délavé'
+      when 'sand'
+        assign active_filter_value = 'sable'
+      when 'vintage blue'
+        assign active_filter_value = 'bleu vintage'
+      when 'blackblack'
+        assign active_filter_value = 'noir noir'
+    endcase
+
     assign count = 0
 
     for media in product.media
