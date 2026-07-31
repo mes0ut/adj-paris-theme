@@ -14,20 +14,6 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "cf899475-a395-4f0a-b0a3-2e7cf4f0a6fe": {
-          "type": "announcement",
-          "settings": {
-            "text": "☀️ SUMMER DEALS • Jusqu'à -50% sur une sélection d'articles",
-            "link": ""
-          }
-        },
-        "announcement_yNYJXY": {
-          "type": "announcement",
-          "settings": {
-            "text": "🔥 T-Shirts dès 25€ • Sweats dès 35€ • Jeans 45€",
-            "link": "shopify://collections/sweat"
-          }
-        },
         "announcement_NHidjB": {
           "type": "announcement",
           "settings": {
@@ -37,8 +23,6 @@
         }
       },
       "block_order": [
-        "cf899475-a395-4f0a-b0a3-2e7cf4f0a6fe",
-        "announcement_yNYJXY",
         "announcement_NHidjB"
       ],
       "custom_css": [],
