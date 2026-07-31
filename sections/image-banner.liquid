@@ -95,6 +95,13 @@
             | ceil
           %}
 
+          {%- comment -%}
+            Odak noktasi: tema editorunde gorsele tiklayip "Edit image > focal point"
+            ile secilen nokta kirpmada merkez alinir (varsayilan: ortadan kirpma,
+            bu da portrelerde kafayi kesiyordu).
+          {%- endcomment -%}
+          {%- capture image_focal_style -%}object-position: {{ section.settings.image.presentation.focal_point | default: '50% 50%' }};{%- endcapture -%}
+
           {{
             section.settings.image
             | image_url: width: 3000
@@ -107,6 +114,7 @@
               sizes: '100vw',
               widths: '1500, 2000, 2500, 3000',
               class: 'image-banner__image',
+              style: image_focal_style,
               alt: section.settings.image.alt
             | escape
           }}
@@ -130,6 +138,8 @@
             | ceil
           %}
 
+          {%- capture image_mobile_focal_style -%}object-position: {{ section.settings.image_mobile.presentation.focal_point | default: '50% 50%' }};{%- endcapture -%}
+
           {{
             section.settings.image_mobile
             | image_url: width: 750
@@ -142,6 +152,7 @@
               sizes: '100vw',
               widths: '400, 500, 750',
               class: 'image-banner__image',
+              style: image_mobile_focal_style,
               alt: section.settings.image_mobile.alt
             | escape
           }}
