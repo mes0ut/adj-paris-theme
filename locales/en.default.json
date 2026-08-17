@@ -964,6 +964,9 @@
         "items_count": {
           "many": "%{count} items"
         }
+      },
+      "marketing": {
+        "accept_sms_checkbox_label": "🎁 Join the ADJ Club on WhatsApp: -10% off your next order"
       }
     },
     "notices": {
