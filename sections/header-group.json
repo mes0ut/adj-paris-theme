@@ -17,20 +17,36 @@
         "announcement_NHidjB": {
           "type": "announcement",
           "settings": {
-            "text": "🚚 Livraison offerte dès 70€",
+            "text": "COMMANDÉ AVANT 13H • EXPÉDIÉ LE JOUR MÊME",
+            "link": ""
+          }
+        },
+        "announcement_8mUwnQ": {
+          "type": "announcement",
+          "settings": {
+            "text": "LIVRAISON OFFERTE DÈS 70€ EN FRANCE",
+            "link": ""
+          }
+        },
+        "announcement_kcFnqF": {
+          "type": "announcement",
+          "settings": {
+            "text": "LIVRAISON EUROPE OFFERTE DÈS 250€",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement_NHidjB"
+        "announcement_NHidjB",
+        "announcement_8mUwnQ",
+        "announcement_kcFnqF"
       ],
       "custom_css": [],
       "settings": {
         "color_scheme": "scheme-88eef430-1d42-4dcd-938e-c176f291557e",
-        "show_border_bottom": false,
+        "show_border_bottom": true,
         "carousel_autoplay": true,
-        "carousel_autoplay_speed": 3,
+        "carousel_autoplay_speed": 5,
         "text_align": "center"
       }
     },
