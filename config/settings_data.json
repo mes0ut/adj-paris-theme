@@ -142,7 +142,7 @@
       "sign-up-modal": {
         "type": "sign-up-modal",
         "settings": {
-          "enabled": true,
+          "enabled": false,
           "heading": "Bienvenue chez ADJ PARIS",
           "title_style": "uppercase",
           "content": "Inscrivez-vous et profitez de -10% sur votre première commande avec le code BIENVENUE10",
