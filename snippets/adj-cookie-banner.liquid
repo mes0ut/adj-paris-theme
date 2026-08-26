@@ -1,0 +1,173 @@
+{%- comment -%}
+  adj-cookie-banner.liquid
+  ─────────────────────────────────────────────────────────────────────────
+  Özel çerez bandı — Courrèges tarzı, tam genişlik, üç buton.
+  Shopify'ın Customer Privacy API'sine bağlıdır: "Tout accepter" / "Refuser
+  tout" gerçek izin durumunu değiştirir, Shopify Pixels / Google / Meta
+  bunu okur. Görsel bir kopya değil, işlevsel bir banner.
+
+  ÖN KOŞUL: Shopify admin → Settings → Customer privacy → Cookie banner
+  bölümünde "I will build my own banner" seçilmeli, yoksa Shopify'ın
+  kendi bandı da üstüne biner ve iki banner birden görünür.
+{%- endcomment -%}
+
+<div id="adj-cookie-banner" class="adj-cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies" hidden>
+  <div class="adj-cookie-banner__inner">
+    <div class="adj-cookie-banner__text">
+      <p class="adj-cookie-banner__title">Bienvenue chez ADJ Paris</p>
+      <p class="adj-cookie-banner__desc">
+        Nous utilisons des cookies, y compris des cookies tiers, à des fins de fonctionnement, d'analyses statistiques,
+        de personnalisation de votre expérience, afin de vous proposer des contenus ciblés adaptés à vos centres d'intérêts
+        et analyser la performance de nos campagnes publicitaires. Vous pouvez accepter ces cookies en cliquant sur
+        « Accepter tout » ou cliquer sur « À propos » pour être informé sur notre
+        <a href="{{ pages['privacy-policy'].url | default: '/policies/privacy-policy' }}">politique de confidentialité</a>.
+      </p>
+    </div>
+    <div class="adj-cookie-banner__actions">
+      <button type="button" class="adj-cookie-banner__btn adj-cookie-banner__btn--solid" data-adj-cookie="accept">Accepter tout</button>
+      <button type="button" class="adj-cookie-banner__btn adj-cookie-banner__btn--outline" data-adj-cookie="reject">Refuser tout</button>
+      <a class="adj-cookie-banner__btn adj-cookie-banner__btn--outline" href="{{ pages['privacy-policy'].url | default: '/policies/privacy-policy' }}">À propos</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .adj-cookie-banner {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    font-family: var(--font-body-family);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  }
+  .adj-cookie-banner[hidden] { display: none; }
+
+  .adj-cookie-banner__inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .adj-cookie-banner__text { flex: 1 1 auto; min-width: 0; }
+
+  .adj-cookie-banner__title {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #0a0a0a;
+  }
+
+  .adj-cookie-banner__desc {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #5c5c5c;
+  }
+
+  .adj-cookie-banner__desc a {
+    color: #0a0a0a;
+    text-decoration: underline;
+  }
+
+  .adj-cookie-banner__actions {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  .adj-cookie-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid #0a0a0a;
+    border-radius: 2px;
+    transition: opacity 0.15s ease;
+  }
+  .adj-cookie-banner__btn:hover { opacity: 0.75; }
+
+  .adj-cookie-banner__btn--solid {
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+
+  .adj-cookie-banner__btn--outline {
+    background: transparent;
+    color: #0a0a0a;
+  }
+
+  @media (max-width: 749px) {
+    .adj-cookie-banner__inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+      padding: 18px 20px;
+    }
+    .adj-cookie-banner__actions {
+      flex-direction: column;
+    }
+    .adj-cookie-banner__btn { width: 100%; padding: 13px 16px; }
+  }
+</style>
+
+<script>
+  (function () {
+    function initAdjCookieBanner() {
+      var banner = document.getElementById('adj-cookie-banner');
+      if (!banner || !window.Shopify || !window.Shopify.customerPrivacy) return;
+
+      var privacy = window.Shopify.customerPrivacy;
+
+      function hide() {
+        banner.hidden = true;
+      }
+
+      function show() {
+        banner.hidden = false;
+      }
+
+      // Shopify'ın kendi bandını devre dışı bırakmışsan (admin ayarı) bu API
+      // hâlâ "banner gösterilmeli mi" kararını doğru veriyor — bölge/yasaya göre.
+      if (typeof privacy.shouldShowBanner === 'function' && !privacy.shouldShowBanner()) {
+        hide();
+        return;
+      }
+      show();
+
+      banner.querySelector('[data-adj-cookie="accept"]').addEventListener('click', function () {
+        privacy.setTrackingConsent(
+          { analytics: true, marketing: true, preferences: true, sale_of_data: true },
+          hide,
+        );
+      });
+
+      banner.querySelector('[data-adj-cookie="reject"]').addEventListener('click', function () {
+        privacy.setTrackingConsent(
+          { analytics: false, marketing: false, preferences: false, sale_of_data: false },
+          hide,
+        );
+      });
+    }
+
+    if (window.Shopify && window.Shopify.customerPrivacy) {
+      initAdjCookieBanner();
+    } else {
+      document.addEventListener('visitorConsentCollected', initAdjCookieBanner);
+      document.addEventListener('DOMContentLoaded', initAdjCookieBanner);
+    }
+  })();
+</script>
