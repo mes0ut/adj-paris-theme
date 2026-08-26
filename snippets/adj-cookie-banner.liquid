@@ -126,48 +126,64 @@
 
 <script>
   (function () {
-    function initAdjCookieBanner() {
+    // Kendi çerezimiz TEK gerçek kaynak: banner'ı göstermek Shopify'ın
+    // Customer Privacy API'sinin yüklenmiş olmasına bağlı DEĞİL. "Çerez
+    // başlığını kaldır" admin ayarı Shopify'ın kendi API script'ini de
+    // engelleyebiliyor — o durumda eski kod hiçbir zaman koşulu sağlamayıp
+    // banner'ı sonsuza kadar gizli bırakıyordu. Şimdi banner kendi başına
+    // çalışır; Shopify API'si varsa ayrıca ona da bilgi veririz.
+    var COOKIE_NAME = 'adj_cookie_consent';
+    var COOKIE_DAYS = 365;
+
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    }
+
+    function setCookie(name, value, days) {
+      var d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + d.toUTCString() + '; path=/; SameSite=Lax';
+    }
+
+    function applyShopifyConsent(accepted) {
+      if (window.Shopify && window.Shopify.customerPrivacy && typeof window.Shopify.customerPrivacy.setTrackingConsent === 'function') {
+        try {
+          window.Shopify.customerPrivacy.setTrackingConsent(
+            { analytics: accepted, marketing: accepted, preferences: accepted, sale_of_data: accepted },
+            function () {},
+          );
+        } catch (e) {}
+      }
+    }
+
+    function init() {
       var banner = document.getElementById('adj-cookie-banner');
-      if (!banner || !window.Shopify || !window.Shopify.customerPrivacy) return;
+      if (!banner) return;
 
-      var privacy = window.Shopify.customerPrivacy;
-
-      function hide() {
+      if (getCookie(COOKIE_NAME)) {
         banner.hidden = true;
-      }
-
-      function show() {
-        banner.hidden = false;
-      }
-
-      // Shopify'ın kendi bandını devre dışı bırakmışsan (admin ayarı) bu API
-      // hâlâ "banner gösterilmeli mi" kararını doğru veriyor — bölge/yasaya göre.
-      if (typeof privacy.shouldShowBanner === 'function' && !privacy.shouldShowBanner()) {
-        hide();
         return;
       }
-      show();
+      banner.hidden = false;
 
       banner.querySelector('[data-adj-cookie="accept"]').addEventListener('click', function () {
-        privacy.setTrackingConsent(
-          { analytics: true, marketing: true, preferences: true, sale_of_data: true },
-          hide,
-        );
+        setCookie(COOKIE_NAME, 'accepted', COOKIE_DAYS);
+        applyShopifyConsent(true);
+        banner.hidden = true;
       });
 
       banner.querySelector('[data-adj-cookie="reject"]').addEventListener('click', function () {
-        privacy.setTrackingConsent(
-          { analytics: false, marketing: false, preferences: false, sale_of_data: false },
-          hide,
-        );
+        setCookie(COOKIE_NAME, 'rejected', COOKIE_DAYS);
+        applyShopifyConsent(false);
+        banner.hidden = true;
       });
     }
 
-    if (window.Shopify && window.Shopify.customerPrivacy) {
-      initAdjCookieBanner();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
     } else {
-      document.addEventListener('visitorConsentCollected', initAdjCookieBanner);
-      document.addEventListener('DOMContentLoaded', initAdjCookieBanner);
+      init();
     }
   })();
 </script>
