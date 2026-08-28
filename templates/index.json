@@ -100,11 +100,11 @@
       ],
       "name": "ADJ – Koleksiyon Vitrini",
       "settings": {
-        "heading": "",
+        "heading": "_",
         "heading_size": "h2",
         "heading_align": "left",
         "gap": 8,
-        "padding_top": 72,
+        "padding_top": 160,
         "padding_bottom": 60,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 32
