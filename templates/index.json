@@ -13,7 +13,7 @@
       "type": "image-banner",
       "settings": {
         "height": "custom-desktop",
-        "height_custom": 1100,
+        "height_custom": 1000,
         "height_mobile": "small-mobile",
         "height_mobile_custom": 550,
         "color_scheme": "background-1",
