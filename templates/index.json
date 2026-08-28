@@ -132,6 +132,57 @@
         "button_text_color": "#ffffff"
       }
     },
+    "adj_info_columns_ChBAb6": {
+      "type": "adj-info-columns",
+      "blocks": {
+        "column_kDKdXz": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/truck.svg",
+            "heading": "Expéditions",
+            "text": "<p>Livraison sous 24h en France<br/>Expédié le jour même avant 13h</p>"
+          }
+        },
+        "column_Jr9hVJ": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/refresh-ccw.svg",
+            "heading": "Retours",
+            "text": "<p>Retours sous 15 jours</p>"
+          }
+        },
+        "column_VtLQB9": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/headset.svg",
+            "heading": "Service Client",
+            "text": "<p>Lundi au Vendredi, de 9h à 18h<br/><a href=\"https://wa.me/33756847510\" target=\"_blank\" title=\"https://wa.me/33756847510\">Nous contacter</a><br/><br/></p>"
+          }
+        },
+        "column_BYFben": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/credit-card.svg",
+            "heading": "Paiements sécurisés",
+            "text": "<p>Visa, Mastercard, Amex, PayPal<br/>Apple Pay, Klarna</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_kDKdXz",
+        "column_Jr9hVJ",
+        "column_VtLQB9",
+        "column_BYFben"
+      ],
+      "name": "ADJ – Bilgi Sütunları",
+      "settings": {
+        "show_top_border": true,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 24
+      }
+    },
     "multicolumn_KBTz4x": {
       "type": "multicolumn",
       "blocks": {
@@ -193,6 +244,7 @@
     "image_banner",
     "adj_collection_showcase_gAUBiL",
     "app_download_banner_qEkbBb",
+    "adj_info_columns_ChBAb6",
     "multicolumn_KBTz4x"
   ]
 }
