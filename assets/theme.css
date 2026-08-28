@@ -6093,3 +6093,23 @@ a[href*="promos"]:hover {
   background-color: rgb(var(--color-background)) !important;
   border: none !important;
 }
+
+/* ===========================================================================
+   Header ikonları ~%20 küçültüldü — SADECE dil bayrağı, arama, hesap, sepet.
+   Hamburger menü ikonuna kasıtlı olarak dokunulmadı.
+   Dosyanın en sonuna eklendi ki .header__icon .icon (2rem) ile
+   .header__icon--account/--cart .icon (4.4rem) arasındaki çelişkili eski
+   kuralları kesin olarak eze, dört ikon da aynı tutarlı boyutta görünsün.
+=========================================================================== */
+.header__icon--search svg,
+.header__icon--search .icon,
+.header__icon--account .icon,
+.header__icon--cart .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.localization-modal-button__flag img {
+  width: 1.6rem;
+  height: auto;
+}
