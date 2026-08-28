@@ -33,7 +33,7 @@
         {% render 'icon-language' %}
       {% elsif display_type == 'flag' or display_type == 'flag_and_text' %}
         <span class="localization-modal-button__flag">
-          {{ localization.country | image_url: width: 19 | image_tag }}
+          {{ localization.country | image_url: width: 24 | image_tag }}
         </span>
       {% endif %}
       <span class="visually-hidden">
