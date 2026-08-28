@@ -43,8 +43,8 @@
       ],
       "custom_css": [],
       "settings": {
-        "color_scheme": "scheme-88eef430-1d42-4dcd-938e-c176f291557e",
-        "show_border_bottom": true,
+        "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
+        "show_border_bottom": false,
         "carousel_autoplay": false,
         "carousel_autoplay_speed": 5,
         "text_align": "center"
