@@ -1,0 +1,218 @@
+{%- comment -%}
+  adj-info-columns.liquid
+  ─────────────────────────────────────────────────────────────────────────
+  Minimal, ince tipografili bilgi sütunları (Expéditions / Retours / Service
+  Client / Paiements — Courrèges referansı). Mevcut multicolumn section'ının
+  kaba/büyük yazı tipinden farklı: küçük ikon + küçük kalın başlık + küçük
+  normal metin, ortalanmış, sade.
+{%- endcomment -%}
+
+{% liquid
+  render 'section-spacing', id: section.id
+%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background-color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__divider {
+    border-top: 0.1rem solid rgb(var(--color-border-1));
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, minmax(0, 1fr));
+    gap: 3.2rem 2.4rem;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__col {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__icon img {
+    max-height: 2.4rem;
+    width: auto;
+    object-fit: contain;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.8rem;
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  #shopify-section-{{ section.id }} .adj-info-columns__text p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .adj-info-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3.2rem 1.6rem;
+      padding-top: 3.2rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}">
+  {%- if section.settings.show_top_border -%}
+    <div class="adj-info-columns__divider"></div>
+  {%- endif -%}
+
+  <div class="page-width">
+    <div class="adj-info-columns">
+      {%- for block in section.blocks -%}
+        <div class="adj-info-columns__col" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <div class="adj-info-columns__icon">
+              {{
+                block.settings.icon
+                | image_url: width: 120
+                | image_tag: loading: 'lazy', widths: '60, 120', alt: block.settings.heading
+              }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.heading != blank -%}
+            <p class="adj-info-columns__heading">{{ block.settings.heading }}</p>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <div class="adj-info-columns__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ADJ – Bilgi Sütunları",
+  "tag": "section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_top_border",
+      "label": "Üstte ince ayraç çizgisi göster",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Padding (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Üst boşluk",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt boşluk",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Padding (mobil)"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Üst boşluk (mobil)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt boşluk (mobil)",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Sütun",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "İkon (küçük, tek renk SVG/PNG önerilir)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Başlık",
+          "default": "Expéditions"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Metin (link eklemek için metni seçip zincir ikonunu kullanın)",
+          "default": "<p>Livraison express</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ADJ – Bilgi Sütunları",
+      "category": "Metin",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": { "heading": "Expéditions", "text": "<p>Livraison express<br>Droits de douane inclus</p>" }
+        },
+        {
+          "type": "column",
+          "settings": { "heading": "Retours", "text": "<p>Retours gratuits</p>" }
+        },
+        {
+          "type": "column",
+          "settings": { "heading": "Service Client", "text": "<p>Lundi au Vendredi, de 10h à 18h, CET</p>" }
+        },
+        {
+          "type": "column",
+          "settings": { "heading": "Paiements sécurisés", "text": "<p>Visa, Mastercard, Amex, PayPal, Apple Pay</p>" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
