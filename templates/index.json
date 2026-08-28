@@ -100,6 +100,7 @@
       ],
       "name": "ADJ – Koleksiyon Vitrini",
       "settings": {
+        "show_border_bottom": true,
         "heading": "",
         "heading_size": "h2",
         "heading_align": "left",
@@ -177,6 +178,7 @@
       "name": "ADJ – Bilgi Sütunları",
       "settings": {
         "show_top_border": true,
+        "show_border_bottom": true,
         "padding_top": 0,
         "padding_bottom": 40,
         "mobile_padding_top": 0,
