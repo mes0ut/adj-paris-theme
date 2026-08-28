@@ -42,89 +42,72 @@
         "enable_animation": true
       }
     },
-    "images_iEqnPc": {
-      "type": "images",
+    "adj_collection_showcase_gAUBiL": {
+      "type": "adj-collection-showcase",
       "blocks": {
-        "image_jxjjxE": {
+        "image_CWCDkh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_5.jpg",
-            "image_style": "image-border-radius--none",
-            "title": "",
-            "text": "",
-            "link": "shopify://collections/t-shirts-25",
-            "link_text": "",
-            "button_color_scheme": "button"
+            "image": "shopify://shop_images/1_4e530001-16ae-4cf5-98e0-6ca270bf41a6.png",
+            "link": "",
+            "label": "",
+            "text_color": "#ffffff"
           }
         },
-        "image_qcYj8j": {
+        "image_KgjT6V": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_11.jpg",
-            "image_style": "image-border-radius--none",
-            "title": "",
-            "text": "",
-            "link": "shopify://collections/sweats-zippes",
-            "link_text": "",
-            "button_color_scheme": "button"
+            "image": "shopify://shop_images/4.png",
+            "link": "",
+            "label": "",
+            "text_color": "#ffffff"
           }
         },
-        "image_9C6ifC": {
+        "image_9G469X": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_14.jpg",
-            "image_style": "image-border-radius--none",
-            "title": "",
-            "text": "",
-            "link": "shopify://collections/jeans-pantalons",
-            "link_text": "",
-            "button_color_scheme": "button"
+            "image": "shopify://shop_images/3.png",
+            "link": "",
+            "label": "",
+            "text_color": "#ffffff"
           }
         },
-        "image_p6gCMH": {
+        "image_W7AzAf": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/C-alisma_yuzeyi_4_kopya_13.jpg",
-            "image_style": "image-border-radius--none",
-            "title": "",
-            "text": "",
-            "link": "shopify://collections/derniers-prix-20",
-            "link_text": "",
-            "button_color_scheme": "button"
+            "image": "shopify://shop_images/2_75cbc568-4f71-44eb-b53e-6b6a55ca3e02.png",
+            "link": "",
+            "label": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_kwMmVP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4_e4bbf028-94d9-416a-8416-8bae826a25d5.png",
+            "link": "",
+            "label": "",
+            "text_color": "#ffffff"
           }
         }
       },
       "block_order": [
-        "image_jxjjxE",
-        "image_qcYj8j",
-        "image_9C6ifC",
-        "image_p6gCMH"
+        "image_CWCDkh",
+        "image_KgjT6V",
+        "image_9G469X",
+        "image_W7AzAf",
+        "image_kwMmVP"
       ],
-      "disabled": true,
-      "name": "t:sections.images.presets.name",
+      "name": "ADJ – Koleksiyon Vitrini",
       "settings": {
-        "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
-        "show_border_bottom": false,
         "heading": "",
-        "subheading": "",
-        "link": "/",
-        "link_text": "",
-        "button_color_scheme": "link link-with-icon",
-        "layout": "grid",
-        "row_gap": 20,
-        "column_gap": 20,
-        "columns": 4,
-        "image_ratio": "portrait",
-        "title_style": "normal",
-        "heading_size": "p",
-        "alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0,
-        "margin_bottom": 0,
-        "mobile_margin_bottom": 0,
-        "enable_animation": true
+        "heading_size": "h2",
+        "heading_align": "left",
+        "gap": 8,
+        "padding_top": 72,
+        "padding_bottom": 60,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32
       }
     },
     "app_download_banner_qEkbBb": {
@@ -207,7 +190,7 @@
   },
   "order": [
     "image_banner",
-    "images_iEqnPc",
+    "adj_collection_showcase_gAUBiL",
     "app_download_banner_qEkbBb",
     "multicolumn_KBTz4x"
   ]
