@@ -115,6 +115,7 @@
       "type": "app-download-banner",
       "name": "Uygulama İndirme Banner'ı",
       "settings": {
+        "show_border_bottom": true,
         "image": "shopify://shop_images/adj-paris-app-collage.jpg",
         "eyebrow": "NOUVEAU",
         "heading": "Téléchargez l'application ADJ Paris",
