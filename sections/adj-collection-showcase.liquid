@@ -93,6 +93,17 @@
     #shopify-section-{{ section.id }} .adj-showcase {
       grid-template-columns: 1fr;
     }
+
+    /* Masaüstünde .tall görselinin yüksekliği grid'in kendi satır yüksekliğine
+       "stretch" ile eşitleniyor (flex:1 o yükseklik içinde büyüyor). Mobilde
+       tek sütuna düşünce grid satırı artık içeriğe göre boyutlanıyor ve
+       içindeki img position:absolute olduğu için media'nın kendi yüksekliği
+       sıfıra düşüyor — görsel tamamen kayboluyor, sadece link/metin kalıyordu.
+       Mobilde sabit bir aspect-ratio vererek bu bağımlılığı ortadan kaldırır. */
+    #shopify-section-{{ section.id }} .adj-showcase__tall .adj-showcase__media {
+      flex: none;
+      aspect-ratio: 3 / 4;
+    }
   }
 {%- endstyle -%}
 
