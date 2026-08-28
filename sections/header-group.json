@@ -58,7 +58,7 @@
           "settings": {
             "accent_color": "#FFFFFF",
             "menu_bind": "SHOP",
-            "show_icon": true,
+            "show_icon": false,
             "image": "shopify://shop_images/3.png",
             "title": "",
             "title_style": "normal",
@@ -68,8 +68,8 @@
         "image_link_D7nxEC": {
           "type": "image_link",
           "settings": {
-            "accent_color": "#ffe5e5",
-            "menu_bind": "",
+            "accent_color": "#FFFFFF",
+            "menu_bind": "SHOP",
             "show_icon": true,
             "image": "shopify://shop_images/2_75cbc568-4f71-44eb-b53e-6b6a55ca3e02.png",
             "title": "",
@@ -80,8 +80,8 @@
         "image_link_UeKBY3": {
           "type": "image_link",
           "settings": {
-            "accent_color": "#ffe5e5",
-            "menu_bind": "",
+            "accent_color": "#FFFFFF",
+            "menu_bind": "SHOP",
             "show_icon": true,
             "image": "shopify://shop_images/1_4e530001-16ae-4cf5-98e0-6ca270bf41a6.png",
             "title": "",
