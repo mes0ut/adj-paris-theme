@@ -81,16 +81,22 @@
       height: auto;
     }
   }
+#shopify-section-{{ section.id }} .adj-showcase__heading-wrap {
+    padding-left: var(--page-width-padding);
+    padding-right: var(--page-width-padding);
+  }
 {%- endstyle -%}
 
-<div class="page-width isolate">
+<div class="section-{{ section.id }}">
   {%- if section.settings.heading != blank -%}
-    <h2
-      class="{{ section.settings.heading_size }}"
-      style="text-align: {{ section.settings.heading_align }}; margin-bottom: 2.4rem;"
-    >
-      {{ section.settings.heading }}
-    </h2>
+    <div class="adj-showcase__heading-wrap">
+      <h2
+        class="{{ section.settings.heading_size }}"
+        style="text-align: {{ section.settings.heading_align }}; margin-bottom: 2.4rem;"
+      >
+        {{ section.settings.heading }}
+      </h2>
+    </div>
   {%- endif -%}
 
   <div class="adj-showcase" {{ section.shopify_attributes }}>
