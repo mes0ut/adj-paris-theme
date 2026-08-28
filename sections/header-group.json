@@ -45,7 +45,7 @@
       "settings": {
         "color_scheme": "scheme-88eef430-1d42-4dcd-938e-c176f291557e",
         "show_border_bottom": true,
-        "carousel_autoplay": true,
+        "carousel_autoplay": false,
         "carousel_autoplay_speed": 5,
         "text_align": "center"
       }

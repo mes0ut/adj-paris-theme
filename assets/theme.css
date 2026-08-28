@@ -2969,6 +2969,44 @@ embla-component.announcement-bar__carousel .embla__slide {
   width: 100%;
 }
 
+/* Duyuru barı: otomatik kayma yerine ok tuşlarıyla manuel gezinme.
+   Butonlar .embla div'inin içinde, .embla__viewport ile kardeş —
+   bu yüzden flex .embla'ya uygulanır, embla-component'e değil. */
+.announcement-bar__nav.embla__button {
+  position: static;
+  transform: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: currentColor;
+  flex: 0 0 auto;
+}
+
+.announcement-bar__nav.embla__button svg,
+.announcement-bar__nav.embla__button .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.announcement-bar__carousel .embla {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.announcement-bar__carousel .embla__viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.announcement-bar__nav--prev {
+  order: -1;
+}
+
+.announcement-bar__nav--next {
+  order: 1;
+}
+
 .shopify-pc__banner__dialog.shopify-pc__banner__dialog {
   left: 0;
   width: 100%;

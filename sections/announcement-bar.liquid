@@ -75,6 +75,20 @@
       {% if block_count > 1 %}
         </div>
         </div>
+        <button
+          class="embla__button embla__button--prev announcement-bar__nav announcement-bar__nav--prev"
+          disabled=""
+          aria-label="{{ 'general.pagination.previous' | t }}"
+        >
+          {% render 'icon-arrow-left-large' %}
+        </button>
+        <button
+          class="embla__button embla__button--next announcement-bar__nav announcement-bar__nav--next"
+          disabled=""
+          aria-label="{{ 'general.pagination.next' | t }}"
+        >
+          {% render 'icon-arrow-right-large' %}
+        </button>
         </div>
         </embla-component>
       {% endif %}
@@ -104,7 +118,7 @@
       "id": "carousel_autoplay",
       "label": "t:sections.announcement-bar.settings.announcement_autoplay.label",
       "info": "t:sections.announcement-bar.settings.announcement_autoplay.info",
-      "default": true
+      "default": false
     },
     {
       "type": "range",
