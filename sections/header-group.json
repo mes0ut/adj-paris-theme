@@ -52,23 +52,6 @@
     },
     "header": {
       "type": "header",
-      "blocks": {
-        "image_link_UeKBY3": {
-          "type": "image_link",
-          "settings": {
-            "accent_color": "#FFFFFF",
-            "menu_bind": "SHOP",
-            "show_icon": false,
-            "image": "shopify://shop_images/1_4e530001-16ae-4cf5-98e0-6ca270bf41a6.png",
-            "title": "",
-            "title_style": "normal",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_link_UeKBY3"
-      ],
       "custom_css": [],
       "settings": {
         "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
