@@ -85,8 +85,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/4_e4bbf028-94d9-416a-8416-8bae826a25d5.png",
-            "link": "",
-            "label": "",
+            "link": "shopify://collections/all-products",
+            "label": "Tout Voir",
             "text_color": "#ffffff"
           }
         }
