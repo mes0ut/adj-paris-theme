@@ -65,9 +65,29 @@
 
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .adj-info-columns {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 3.2rem 1.6rem;
+      display: flex;
+      grid-template-columns: none;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 2.4rem;
       padding-top: 3.2rem;
+      margin-left: calc(-1 * var(--page-width-padding));
+      margin-right: calc(-1 * var(--page-width-padding));
+      padding-left: var(--page-width-padding);
+      padding-right: var(--page-width-padding);
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns::-webkit-scrollbar {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns__col {
+      flex: 0 0 auto;
+      width: 72%;
+      scroll-snap-align: start;
     }
   }
 {%- endstyle -%}
