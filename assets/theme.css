@@ -3499,7 +3499,11 @@ details[open] > .header__icon--menu .icon-hamburger {
   transform: translateY(0);
 }
 
-.header__inline-menu details[open] > .header__mega-menu {
+/* Mega menü açıkken sağ/solda boşluk kalıyordu — bu kural onu 34%'e
+   daraltıp sola yaslıyordu, temel .header__mega-menu.list-menu kuralının
+   (width:100%; max-width:var(--page-width)) üzerine biniyordu. Kaldırıldı,
+   mega menü artık tam sayfa genişliğinde açılıyor. */
+.header__inline-menu details[open] > .header__dropdown-menu {
   max-width: 34%;
   width: auto;
 }
