@@ -120,7 +120,7 @@
   }
 </style>
 
-<div class="app-download-banner">
+<div class="app-download-banner {% if section.settings.show_border_bottom %}section-border-bottom{% endif %}">
   <div class="app-download-banner__inner">
     <div class="app-download-banner__text">
       {% if section.settings.eyebrow != blank %}
@@ -172,6 +172,7 @@
 {
   "name": "Uygulama İndirme Banner'ı",
   "settings": [
+    { "type": "checkbox", "id": "show_border_bottom", "label": "Altında ince ayraç çizgisi göster", "default": false },
     { "type": "image_picker", "id": "image", "label": "Görsel" },
     { "type": "text", "id": "eyebrow", "label": "Üst etiket", "default": "NOUVEAU" },
     { "type": "text", "id": "heading", "label": "Başlık", "default": "Téléchargez l'application ADJ Paris" },
