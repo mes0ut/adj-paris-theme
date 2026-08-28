@@ -2,8 +2,14 @@
   adj-collection-showcase.liquid
   ─────────────────────────────────────────────────────────────────────────
   4 kare görsel (2x2 grid, sol taraf) + 1 tam boy dikey görsel (sağ taraf).
-  Her blok elle seçilen görsel + kendi linki + opsiyonel üzerine yazı.
+  Her blok elle seçilen görsel + kendi linki + opsiyonel başlık metni.
   Blok sırası önemli: ilk 4 blok sol gride, 5. blok sağdaki büyük görsele.
+
+  Metin GÖRSELİN ÜSTÜNE değil, ALTINA (resmin dışında, sabit bir alanda)
+  yerleşir — her ürün fotoğrafının kendi kompozisyonu farklı olduğu için
+  (bazısı ürünü küçük/ortada, bazısı kareyi dolduracak şekilde büyük
+  gösteriyor), overlay metin bazen boşluğa bazen ürünün üstüne denk düşüp
+  tutarsız görünüyordu. Sabit alan bu sorunu tamamen ortadan kaldırır.
 {%- endcomment -%}
 
 {% liquid
@@ -28,7 +34,15 @@
     gap: {{ section.settings.gap }}px;
   }
 
-  #shopify-section-{{ section.id }} .adj-showcase__tile {
+  #shopify-section-{{ section.id }} .adj-showcase__tile,
+  #shopify-section-{{ section.id }} .adj-showcase__tall {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #shopify-section-{{ section.id }} .adj-showcase__media {
     position: relative;
     display: block;
     overflow: hidden;
@@ -36,16 +50,12 @@
     background-color: #ffffff;
   }
 
-  #shopify-section-{{ section.id }} .adj-showcase__tall {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    height: 100%;
-    background-color: #ffffff;
+  #shopify-section-{{ section.id }} .adj-showcase__tall .adj-showcase__media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
   }
 
-  #shopify-section-{{ section.id }} .adj-showcase__tile img,
-  #shopify-section-{{ section.id }} .adj-showcase__tall img {
+  #shopify-section-{{ section.id }} .adj-showcase__media img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -55,54 +65,34 @@
     transition: transform 0.4s ease;
   }
 
-  #shopify-section-{{ section.id }} .adj-showcase__tile:hover img,
-  #shopify-section-{{ section.id }} .adj-showcase__tall:hover img {
+  #shopify-section-{{ section.id }} .adj-showcase__tile:hover .adj-showcase__media img,
+  #shopify-section-{{ section.id }} .adj-showcase__tall:hover .adj-showcase__media img {
     transform: scale(1.03);
   }
 
-  #shopify-section-{{ section.id }} .adj-showcase__tile::after,
-  #shopify-section-{{ section.id }} .adj-showcase__tall::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 45%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
-    pointer-events: none;
-  }
-
   #shopify-section-{{ section.id }} .adj-showcase__label {
-    position: absolute;
-    left: 1.6rem;
-    bottom: 1.6rem;
-    right: 1.6rem;
+    display: block;
+    padding: 0.9rem 0.2rem 0;
     font-size: 1.2rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     line-height: 1.3;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
-    pointer-events: none;
-    z-index: 1;
+    color: rgb(var(--color-foreground));
   }
 
   #shopify-section-{{ section.id }} .adj-showcase__tall .adj-showcase__label {
     font-size: 1.4rem;
   }
 
+  #shopify-section-{{ section.id }} .adj-showcase__heading-wrap {
+    padding-left: var(--page-width-padding);
+    padding-right: var(--page-width-padding);
+  }
+
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .adj-showcase {
       grid-template-columns: 1fr;
     }
-
-    #shopify-section-{{ section.id }} .adj-showcase__tall {
-      aspect-ratio: 3 / 4;
-      height: auto;
-    }
-  }
-#shopify-section-{{ section.id }} .adj-showcase__heading-wrap {
-    padding-left: var(--page-width-padding);
-    padding-right: var(--page-width-padding);
   }
 {%- endstyle -%}
 
@@ -122,30 +112,29 @@
     <div class="adj-showcase__quad">
       {%- for block in section.blocks limit: 4 -%}
         {%- liquid
-          assign tile_class = 'adj-showcase__tile'
           assign img_widths = '400, 600, 800'
           assign img_sizes = '(min-width: 750px) 25vw, 50vw'
         -%}
         {%- if block.settings.link != blank -%}
-          <a href="{{ block.settings.link }}" class="{{ tile_class }}" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link }}" class="adj-showcase__tile" {{ block.shopify_attributes }}>
         {%- else -%}
-          <div class="{{ tile_class }}" {{ block.shopify_attributes }}>
+          <div class="adj-showcase__tile" {{ block.shopify_attributes }}>
         {%- endif -%}
 
-          {%- if block.settings.image != blank -%}
-            {{
-              block.settings.image
-              | image_url: width: 800
-              | image_tag: loading: 'lazy', widths: img_widths, sizes: img_sizes, alt: block.settings.image.alt
-            }}
-          {%- else -%}
-            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-          {%- endif -%}
+          <div class="adj-showcase__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 800
+                | image_tag: loading: 'lazy', widths: img_widths, sizes: img_sizes, alt: block.settings.image.alt
+              }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
 
           {%- if block.settings.label != blank -%}
-            <span class="adj-showcase__label" style="color: {{ block.settings.text_color }};">
-              {{ block.settings.label }}
-            </span>
+            <span class="adj-showcase__label">{{ block.settings.label }}</span>
           {%- endif -%}
 
         {%- if block.settings.link != blank -%}
@@ -164,20 +153,20 @@
         <div class="adj-showcase__tall" {{ fifth_block.shopify_attributes }}>
       {%- endif -%}
 
-        {%- if fifth_block.settings.image != blank -%}
-          {{
-            fifth_block.settings.image
-            | image_url: width: 1200
-            | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '50vw', alt: fifth_block.settings.image.alt
-          }}
-        {%- else -%}
-          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-        {%- endif -%}
+        <div class="adj-showcase__media">
+          {%- if fifth_block.settings.image != blank -%}
+            {{
+              fifth_block.settings.image
+              | image_url: width: 1200
+              | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '50vw', alt: fifth_block.settings.image.alt
+            }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
 
         {%- if fifth_block.settings.label != blank -%}
-          <span class="adj-showcase__label" style="color: {{ fifth_block.settings.text_color }};">
-            {{ fifth_block.settings.label }}
-          </span>
+          <span class="adj-showcase__label">{{ fifth_block.settings.label }}</span>
         {%- endif -%}
 
       {%- if fifth_block.settings.link != blank -%}
@@ -305,13 +294,7 @@
         {
           "type": "text",
           "id": "label",
-          "label": "Üzerine yazılacak metin (opsiyonel)"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Metin rengi",
-          "default": "#ffffff"
+          "label": "Başlık metni (opsiyonel, resmin altında görünür)"
         }
       ]
     }

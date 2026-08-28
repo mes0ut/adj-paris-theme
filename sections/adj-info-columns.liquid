@@ -64,6 +64,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .adj-info-columns__scroller {
+      position: relative;
+    }
+
     #shopify-section-{{ section.id }} .adj-info-columns {
       display: flex;
       grid-template-columns: none;
@@ -86,8 +90,44 @@
 
     #shopify-section-{{ section.id }} .adj-info-columns__col {
       flex: 0 0 auto;
-      width: 72%;
+      width: 88%;
       scroll-snap-align: start;
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns__nav {
+      position: absolute;
+      top: calc(50% + 1.6rem);
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+      color: rgb(var(--color-foreground));
+      cursor: pointer;
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns__nav svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns__nav--prev {
+      left: 0.4rem;
+    }
+
+    #shopify-section-{{ section.id }} .adj-info-columns__nav--next {
+      right: 0.4rem;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .adj-info-columns__nav {
+      display: none;
     }
   }
 {%- endstyle -%}
@@ -98,31 +138,71 @@
   {%- endif -%}
 
   <div class="page-width">
-    <div class="adj-info-columns">
-      {%- for block in section.blocks -%}
-        <div class="adj-info-columns__col" {{ block.shopify_attributes }}>
-          {%- if block.settings.icon != blank -%}
-            <div class="adj-info-columns__icon">
-              {{
-                block.settings.icon
-                | image_url: width: 120
-                | image_tag: loading: 'lazy', widths: '60, 120', alt: block.settings.heading
-              }}
-            </div>
-          {%- endif -%}
+    <div class="adj-info-columns__scroller">
+      <div class="adj-info-columns" id="AdjInfoColumns-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <div class="adj-info-columns__col" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              <div class="adj-info-columns__icon">
+                {{
+                  block.settings.icon
+                  | image_url: width: 120
+                  | image_tag: loading: 'lazy', widths: '60, 120', alt: block.settings.heading
+                }}
+              </div>
+            {%- endif -%}
 
-          {%- if block.settings.heading != blank -%}
-            <p class="adj-info-columns__heading">{{ block.settings.heading }}</p>
-          {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <p class="adj-info-columns__heading">{{ block.settings.heading }}</p>
+            {%- endif -%}
 
-          {%- if block.settings.text != blank -%}
-            <div class="adj-info-columns__text rte">{{ block.settings.text }}</div>
-          {%- endif -%}
-        </div>
-      {%- endfor -%}
+            {%- if block.settings.text != blank -%}
+              <div class="adj-info-columns__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <button type="button" class="adj-info-columns__nav adj-info-columns__nav--prev" aria-label="{{ 'general.pagination.previous' | t }}" data-adj-info-prev>
+          {%- render 'icon-chevron-left' -%}
+        </button>
+        <button type="button" class="adj-info-columns__nav adj-info-columns__nav--next" aria-label="{{ 'general.pagination.next' | t }}" data-adj-info-next>
+          {%- render 'icon-chevron-right' -%}
+        </button>
+      {%- endif -%}
     </div>
   </div>
 </div>
+
+<script>
+  (function () {
+    var scroller = document.getElementById('AdjInfoColumns-{{ section.id }}');
+    if (!scroller) return;
+    var wrap = scroller.closest('.adj-info-columns__scroller');
+    if (!wrap) return;
+
+    var prevBtn = wrap.querySelector('[data-adj-info-prev]');
+    var nextBtn = wrap.querySelector('[data-adj-info-next]');
+
+    function step() {
+      var col = scroller.querySelector('.adj-info-columns__col');
+      var gap = 24; // .adj-info-columns gap (2.4rem) px karşılığı
+      return col ? col.getBoundingClientRect().width + gap : scroller.clientWidth;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        scroller.scrollBy({ left: -step(), behavior: 'smooth' });
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        scroller.scrollBy({ left: step(), behavior: 'smooth' });
+      });
+    }
+  })();
+</script>
 
 {% schema %}
 {
