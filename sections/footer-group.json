@@ -40,6 +40,7 @@
         "paragraph",
         "form"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
         "show_border_bottom": true,
@@ -119,12 +120,12 @@
         "color_scheme": "scheme-39a3c066-1e15-49ac-8184-a8eb5a84d0c4",
         "large_logo_width": 20,
         "menu": "mentions-l-gales",
-        "enable_follow_on_shop": true,
-        "show_social": true,
+        "enable_follow_on_shop": false,
+        "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "locale_display_type": "icon",
-        "payment_enable": true,
+        "payment_enable": false,
         "enable_animation": true
       }
     }
