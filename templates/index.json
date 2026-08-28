@@ -104,8 +104,8 @@
         "heading_size": "h2",
         "heading_align": "left",
         "gap": 8,
-        "padding_top": 160,
-        "padding_bottom": 60,
+        "padding_top": 28,
+        "padding_bottom": 28,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 32
       }
