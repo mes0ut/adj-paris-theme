@@ -2886,7 +2886,7 @@ dd.price__compare {
   color: rgb(var(--color-foreground));
   display: flex;
   justify-content: center;
-  min-height: 3.6rem;
+  min-height: 3.2rem;
   text-align: center;
 }
 
@@ -2943,7 +2943,7 @@ localization-form-header form {
   letter-spacing: var(--letter-spacing);
   line-height: 1.2;
   margin: 0;
-  padding: 0.7rem 0;
+  padding: 0.55rem 0;
   text-align: center;
   vertical-align: middle;
   width: 100%;
