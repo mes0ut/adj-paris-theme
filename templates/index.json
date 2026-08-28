@@ -49,36 +49,36 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/1_4e530001-16ae-4cf5-98e0-6ca270bf41a6.png",
-            "link": "",
-            "label": "",
-            "text_color": "#ffffff"
+            "link": "shopify://collections/t-shirt",
+            "label": "T-shirts",
+            "text_color": "#000000"
           }
         },
         "image_KgjT6V": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/4.png",
-            "link": "",
-            "label": "",
-            "text_color": "#ffffff"
+            "link": "shopify://collections/vestes",
+            "label": "Vestes",
+            "text_color": "#000000"
           }
         },
         "image_9G469X": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/3.png",
-            "link": "",
-            "label": "",
-            "text_color": "#ffffff"
+            "link": "shopify://collections/sweat",
+            "label": "Sweatshirt",
+            "text_color": "#000000"
           }
         },
         "image_W7AzAf": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/2_75cbc568-4f71-44eb-b53e-6b6a55ca3e02.png",
-            "link": "",
-            "label": "",
-            "text_color": "#ffffff"
+            "link": "shopify://collections/jogging",
+            "label": "Jogging",
+            "text_color": "#000000"
           }
         },
         "image_kwMmVP": {
