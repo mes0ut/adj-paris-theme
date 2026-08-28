@@ -91,7 +91,7 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}">
+<div class="section-{{ section.id }} {% if section.settings.show_border_bottom %}section-border-bottom{% endif %}">
   {%- if section.settings.heading != blank -%}
     <div class="adj-showcase__heading-wrap">
       <h2
@@ -180,6 +180,12 @@
   "tag": "section",
   "max_blocks": 5,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_border_bottom",
+      "label": "Altında ince ayraç çizgisi göster",
+      "default": false
+    },
     {
       "type": "text",
       "id": "heading",
