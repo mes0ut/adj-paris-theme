@@ -25,15 +25,15 @@
         "image_mobile": "shopify://shop_images/1_76c24676-fd0c-43e9-af82-01025e0931b6.png",
         "heading": "COLLECTION AH26",
         "title_style": "normal",
-        "header_size": "h2",
-        "header_size_mobile": "h1-mobile",
-        "subheading": "<p>Déjà Disponible<br/></p>",
-        "subheading_size": "p",
+        "header_size": "h1",
+        "header_size_mobile": "h0-mobile",
+        "subheading": "<h5><strong>Bientôt Disponible</strong></h5><p><em>Rejoins le ADJ Club sur WhatsApp pour être prévenu·e</em><br/></p>",
+        "subheading_size": "p-large",
         "text_alignment": "center",
         "content_position": "center",
         "show_gradient": false,
-        "link": "shopify://collections/nouveautes",
-        "link_text": "Voir la collection",
+        "link": "https://wa.me/33756847510?text=Me%20pr%C3%A9venir%20pour%20la%20nouvelle%20collection%20AH%2026%20%E2%9D%84%EF%B8%8F",
+        "link_text": "Me prévenir",
         "button_color_scheme": "button",
         "side_text": "",
         "side_text_position": "right",
@@ -50,8 +50,7 @@
           "settings": {
             "image": "shopify://shop_images/1_4e530001-16ae-4cf5-98e0-6ca270bf41a6.png",
             "link": "shopify://collections/t-shirt",
-            "label": "T-shirts",
-            "text_color": "#000000"
+            "label": "T-shirts"
           }
         },
         "image_KgjT6V": {
@@ -59,8 +58,7 @@
           "settings": {
             "image": "shopify://shop_images/4.png",
             "link": "shopify://collections/vestes",
-            "label": "Vestes",
-            "text_color": "#000000"
+            "label": "Vestes"
           }
         },
         "image_9G469X": {
@@ -68,8 +66,7 @@
           "settings": {
             "image": "shopify://shop_images/3.png",
             "link": "shopify://collections/sweat",
-            "label": "Sweatshirt",
-            "text_color": "#000000"
+            "label": "Sweatshirt"
           }
         },
         "image_W7AzAf": {
@@ -77,8 +74,7 @@
           "settings": {
             "image": "shopify://shop_images/2_75cbc568-4f71-44eb-b53e-6b6a55ca3e02.png",
             "link": "shopify://collections/jogging",
-            "label": "Jogging",
-            "text_color": "#000000"
+            "label": "Jogging"
           }
         },
         "image_kwMmVP": {
@@ -86,8 +82,7 @@
           "settings": {
             "image": "shopify://shop_images/4_e4bbf028-94d9-416a-8416-8bae826a25d5.png",
             "link": "shopify://collections/all-products",
-            "label": "Tout Voir",
-            "text_color": "#ffffff"
+            "label": "Tout Voir"
           }
         }
       },
