@@ -19,7 +19,7 @@
         "color_scheme": "background-5",
         "full_width": true,
         "show_border_bottom": true,
-        "border_radius": "image-border-radius--none",
+        "border_radius": "image-border-radius--rounded-xxs",
         "image": "shopify://shop_images/1_76c24676-fd0c-43e9-af82-01025e0931b6.png",
         "delay_loader": true,
         "image_mobile": "shopify://shop_images/1_76c24676-fd0c-43e9-af82-01025e0931b6.png",
