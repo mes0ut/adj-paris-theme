@@ -115,7 +115,7 @@
         "eyebrow": "NOUVEAU",
         "heading": "Téléchargez l'application ADJ Paris",
         "subtext": "Toute la collection, vos commandes et des offres exclusives, désormais dans votre poche.",
-        "show_badge": true,
+        "show_badge": false,
         "badge_value": "-10%",
         "badge_label": "Réservé à l'application",
         "cta_text": "Télécharger l'application",
